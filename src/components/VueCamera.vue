@@ -51,6 +51,10 @@ export default {
     capture: {
       type: String,
       default: 'video'
+    },
+    audio: {
+      type: Boolean,
+      default: false
     }
   },
 
@@ -186,7 +190,7 @@ export default {
       videoConstraints.deviceId = { exact: this.selected.deviceId }
       this.constraints = {
         video: videoConstraints,
-        audio: false
+        audio: this.audio
       }
       navigator.mediaDevices
         .getUserMedia(this.constraints)
@@ -225,7 +229,7 @@ export default {
       videoConstraints.deviceId = { exact: this.selected.deviceId }
       this.constraints = {
         video: videoConstraints,
-        audio: false
+        audio: this.audio
       }
     }
     navigator.mediaDevices
